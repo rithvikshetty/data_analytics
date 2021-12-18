@@ -1,5 +1,5 @@
 
-from pathlib import Path
+# from pathlib import Path
 import optimizers.PSO as pso
 import optimizers.MVO as mvo
 import optimizers.GWO as gwo
@@ -31,7 +31,7 @@ def selector(algo, func_details, popSize, Iter):
     lb = func_details[1]
     ub = func_details[2]
     dim = func_details[3]
-
+    print(function_name)
     if algo == "SSA":
         x = ssa.SSA(getattr(benchmarks, function_name), lb, ub, dim, popSize, Iter)
     elif algo == "PSO":
@@ -97,6 +97,7 @@ def run(optimizer, objectivefunc, NumOfRuns, params, export_flags):
     # Select general parameters for all optimizers (population size, number of iterations) ....
     PopulationSize = params["PopulationSize"]
     Iterations = params["Iterations"]
+    print(PopulationSize, Iterations)
 
     # Export results ?
     Export = export_flags["Export_avg"]
